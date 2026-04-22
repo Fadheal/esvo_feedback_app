@@ -11,32 +11,32 @@ function MenuBar({ editor }: { editor: Editor | null }) {
     {
       icon: <Heading1 className="size-4" />,
       onClick: () => editor.chain().focus().toggleHeading({ level: 1 }).run(),
-      preesed: editor.isActive("heading", { level: 1 }),
+      pressed: editor.isActive("heading", { level: 1 }),
     },
     {
       icon: <Heading2 className="size-4" />,
       onClick: () => editor.chain().focus().toggleHeading({ level: 2 }).run(),
-      preesed: editor.isActive("heading", { level: 2 }),
+      pressed: editor.isActive("heading", { level: 2 }),
     },
     {
       icon: <Heading3 className="size-4" />,
       onClick: () => editor.chain().focus().toggleHeading({ level: 3 }).run(),
-      preesed: editor.isActive("heading", { level: 3 }),
+      pressed: editor.isActive("heading", { level: 3 }),
     },
     {
       icon: <Bold className="size-4" />,
       onClick: () => editor.chain().focus().toggleBold().run(),
-      preesed: editor.isActive("bold"),
+      pressed: editor.isActive("bold"),
     },
     {
       icon: <Italic className="size-4" />,
       onClick: () => editor.chain().focus().toggleItalic().run(),
-      preesed: editor.isActive("italic"),
+      pressed: editor.isActive("italic"),
     },
     {
       icon: <Strikethrough className="size-4" />,
       onClick: () => editor.chain().focus().toggleStrike().run(),
-      preesed: editor.isActive("strike"),
+      pressed: editor.isActive("strike"),
     }
   ];
 
@@ -46,7 +46,7 @@ function MenuBar({ editor }: { editor: Editor | null }) {
         {Options.map((option, index) => (
             <Toggle
                 key={index}
-                pressed={option.preesed}
+                pressed={option.pressed}
                 onPressedChange={option.onClick}
             >
                 {option.icon}
