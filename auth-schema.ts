@@ -1,13 +1,6 @@
 import { relations } from "drizzle-orm";
 import { pgTable, text, timestamp, boolean, index } from "drizzle-orm/pg-core";
 
-export const fpTable = pgTable("fp_table", {
-    id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
-    reaction: text('reaction').notNull(),
-    messages: text('messages').notNull(),
-    created_at: timestamp('created_at').notNull().defaultNow(),
-})
-
 export const user = pgTable("user", {
   id: text("id").primaryKey(),
   name: text("name").notNull(),
@@ -98,9 +91,3 @@ export const accountRelations = relations(account, ({ one }) => ({
     references: [user.id],
   }),
 }));
-
-
-export type FP = typeof fpTable.$inferSelect;
-export type newFp = typeof fpTable.$inferInsert;
-
-export const schema = { user, session, account, verification }

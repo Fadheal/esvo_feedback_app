@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import Card from './dashboard-Card'
 import { getFp } from '#/db/queries'
 import type { FP } from '#/db/schema'
-import { UserButton } from '@clerk/tanstack-react-start';
+import { authClient } from '#/lib/auth-client'
+import { Button } from './ui/button'
 
 function timeAgo(isoString: Date): string {
   const past = new Date(isoString);
@@ -30,6 +31,12 @@ function timeAgo(isoString: Date): string {
 }
 
 function Heroes() {
+  const { data: session } = authClient.useSession()
+
+  const logout = async () => {
+    await authClient.signOut()
+  }
+
   const [fp, setFp] = useState<FP[]>([])
 
   useEffect(() => {
@@ -40,7 +47,11 @@ function Heroes() {
     <div className='flex flex-col gap-2'>
       <div className='flex w-full justify-between items-center'>
         <h1 className='text-3xl'>Feedback Report</h1>
-        <UserButton />
+        {session && (
+          <Button onClick={logout}>
+            Sign Out
+          </Button>
+        )}
       </div>
       <div className='flex flex-wrap gap-2 pt-10'>
         {fp.map(feedbackPost => (
