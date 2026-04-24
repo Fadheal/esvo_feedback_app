@@ -4,8 +4,9 @@ import { getFp } from '#/db/queries'
 import type { FP } from '#/db/schema'
 import { authClient } from '#/lib/auth-client'
 import { Button } from './ui/button'
-import { redirect } from '@tanstack/react-router'
+import { useRouter } from '@tanstack/react-router'
 
+const router = useRouter();
 function timeAgo(isoString: Date): string {
   const past = new Date(isoString);
   const now = new Date();
@@ -38,7 +39,7 @@ function Heroes() {
     await authClient.signOut({
       fetchOptions: {
         onSuccess: () => {
-          throw redirect({ to: '/login' })
+          router.invalidate()
         }
       }
     })
