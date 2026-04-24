@@ -137,17 +137,6 @@ export function LoginForm({
                 By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
                 and <a href="#">Privacy Policy</a>.
             </FieldDescription>
-            <Button variant="outline" onClick={
-                async () => {
-                    await authClient.signUp.email(
-                        {
-                            email: 'sarankritik11@gmail.com',
-                            password: 'prokerdiv7',
-                            name: 'cleo',
-                        }
-                    )
-                }
-            }>Create Account</Button>
         </div>
     )
 }
