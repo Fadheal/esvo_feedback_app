@@ -1,6 +1,7 @@
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
+import { Analytics } from '@vercel/analytics/react'
 
 import appCss from '../styles.css?url'
 import { Toaster } from 'sonner'
@@ -45,6 +46,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <body className="font-sans antialiased wrap-anywhere bg-white/85">
         {children}
         <Toaster/>
+        <Analytics />
         <TanStackDevtools
           config={{
             position: 'bottom-right',
