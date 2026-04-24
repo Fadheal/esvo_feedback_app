@@ -6,7 +6,6 @@ import { authClient } from '#/lib/auth-client'
 import { Button } from './ui/button'
 import { useRouter } from '@tanstack/react-router'
 
-const router = useRouter();
 function timeAgo(isoString: Date): string {
   const past = new Date(isoString);
   const now = new Date();
@@ -34,6 +33,7 @@ function timeAgo(isoString: Date): string {
 
 function Heroes() {
   const { data: session } = authClient.useSession()
+  const router = useRouter();
 
   const logout = async () => {
     await authClient.signOut({
