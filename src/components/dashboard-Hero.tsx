@@ -4,6 +4,7 @@ import { getFp } from '#/db/queries'
 import type { FP } from '#/db/schema'
 import { authClient } from '#/lib/auth-client'
 import { Button } from './ui/button'
+import { redirect } from '@tanstack/react-router'
 
 function timeAgo(isoString: Date): string {
   const past = new Date(isoString);
@@ -34,7 +35,13 @@ function Heroes() {
   const { data: session } = authClient.useSession()
 
   const logout = async () => {
-    await authClient.signOut()
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          throw redirect({ to: '/login' })
+        }
+      }
+    })
   }
 
   const [fp, setFp] = useState<FP[]>([])
