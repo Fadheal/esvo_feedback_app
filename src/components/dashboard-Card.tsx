@@ -13,7 +13,7 @@ function Card({id, time, text, expression}: CardProps) {
                     <img className="max-h-8 min-w-8 bg-linear-to-b border border-solid border-foreground-muted rounded-full flex justify-center items-center from-orange-200 to-orange-100 p-1.5 transition duration-300 ease-in-out peer-checked:scale-120 cursor-pointer"
                     src="/disappointed-face.webp"
                     />
-                    <span className="font-bold">Apa apaan ini</span>
+                    <span className="font-bold text-white">Apa apaan ini</span>
                 </div>
             )
         } else if (expression === '1') {
@@ -22,7 +22,7 @@ function Card({id, time, text, expression}: CardProps) {
                     <img className="max-h-8 min-w-8 bg-linear-to-b border border-solid border-foreground-muted rounded-full flex justify-center items-center from-orange-200 to-orange-100 p-1.5 transition duration-300 ease-in-out peer-checked:scale-120 cursor-pointer"
                     src="/frowning-face.webp"
                     />
-                    <span className="font-bold">Gini Banget Dah</span>
+                    <span className="font-bold text-white">Gini Banget Dah</span>
                 </div>
             )
         } else if (expression === '2') {
@@ -31,7 +31,7 @@ function Card({id, time, text, expression}: CardProps) {
                     <img className="max-h-8 min-w-8 bg-linear-to-b border border-solid border-foreground-muted rounded-full flex justify-center items-center from-orange-200 to-orange-100 p-1.5 transition duration-300 ease-in-out peer-checked:scale-120 cursor-pointer"
                     src="/neutral-face.webp"
                     />
-                    <span className="font-bold">B aja sih</span>
+                    <span className="font-bold text-white">B aja sih</span>
                 </div>
             )
         } else if (expression === '3') {
@@ -40,7 +40,7 @@ function Card({id, time, text, expression}: CardProps) {
                     <img className="max-h-8 min-w-8 bg-linear-to-b border border-solid border-foreground-muted rounded-full flex justify-center items-center from-orange-200 to-orange-100 p-1.5 transition duration-300 ease-in-out peer-checked:scale-120 cursor-pointer"
                     src="/slightly-smiling-face.webp"
                     />
-                    <span className="font-bold">Bagus sih</span>
+                    <span className="font-bold text-white">Bagus sih</span>
                 </div>
             )
         } else if (expression === '4') {
@@ -49,7 +49,7 @@ function Card({id, time, text, expression}: CardProps) {
                     <img className="max-h-8 min-w-8 bg-linear-to-b border border-solid border-foreground-muted rounded-full flex justify-center items-center from-orange-200 to-orange-100 p-1.5 transition duration-300 ease-in-out peer-checked:scale-120 cursor-pointer"
                     src="/smiling-face-with-hearts.webp"
                     />
-                    <span className="font-bold">BAGUS BANGET WOEE</span>
+                    <span className="font-bold text-white">BAGUS BANGET WOEE</span>
                 </div>
             )
         }
@@ -60,7 +60,7 @@ function Card({id, time, text, expression}: CardProps) {
             <div className="flex flex-col gap-3 justify-between h-full">
                 <ExpressionList />
                 <div className="px-1">
-                    <p>
+                    <p className="text-white">
                         {text}
                     </p>
                 </div>
